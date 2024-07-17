@@ -48,9 +48,8 @@
                 <form method="POST" action="{{ route('product.delete', ['prodID' => $productInfo->prodID]) }}">
                     @csrf
                     @method('DELETE')
-                    <input class="title" type="submit" name="submitdelete" value=" X DELETE" style="box-shadow: none; float: right; background-color:#EC5656" onclick="return confirm('Are you sure you want to delete?');">
+                    <input class="title" type="submit" name="submitdelete" value="X DELETE" onclick="return confirm('Are you sure you want to delete?');">
                 </form>
-                
             </td>
         </tr>
         @endforeach

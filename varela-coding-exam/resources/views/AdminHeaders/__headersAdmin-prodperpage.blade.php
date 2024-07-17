@@ -8,13 +8,16 @@
     <title>MegaMart Admin</title>
 </head>
 <style>
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
 
 nav {
     background-color: #333;
@@ -49,12 +52,11 @@ nav img {
     text-decoration: underline;
 }
 
-
 .container {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #f2f2f2;
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -106,6 +108,26 @@ nav img {
 .char-count {
     font-size: 0.8em;
     opacity: 0.7;
+}
+
+.alert {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+.product-image {
+    width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px auto;
 }
 
 </style>

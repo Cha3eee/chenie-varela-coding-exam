@@ -27,7 +27,7 @@
 
         <div class="form-group">
             <label for="prodImg">Product Image:</label>
-            <img src="data:image/jpeg;base64,{{ urlencode(base64_encode($product->prodImg)) }}" />
+            <img src="data:image/jpeg;base64,{{ urlencode(base64_encode($product->prodImg)) }}" class="product-image"/>
         </div>
 
         <div class="form-group">

@@ -3,80 +3,142 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    text-align: center; 
-}
-
-header {
-    margin-top: 50px;
-    padding: 20px;
-    background-color: #f0f0f0;
+    text-align: center;
+    background-color: #f9f9f9;
 }
 
 nav {
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+
+.nav-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
-    background-color: #f0f0f0;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 nav img {
-    width: 40px; 
-    margin-right: 10px; 
+    width: 40px;
+    margin-right: 10px;
 }
 
 .brand {
     font-size: 1.5em;
+    font-weight: bold;
 }
 
 .links-home {
-    margin-left: auto; 
+    margin-left: auto;
 }
 
 .links-home a {
-    margin-left: 10px; 
+    margin-left: 20px;
     text-decoration: none;
     color: #333;
+    font-size: 1em;
+}
+
+links-home a:hover {
+    text-decoration: underline;
 }
 
 h1 {
     font-size: 2.5em;
-    margin-bottom: 10px;
-}
-
-p {
-    font-size: 1.2em;
+    margin: 20px 0;
 }
 
 .products-table {
     width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
     border-collapse: collapse;
-    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
 }
+
 .products-table th,
 .products-table td {
     border: 1px solid #ddd;
     padding: 8px;
-    text-align: left;
+    text-align: center;
 }
+
 .products-table th {
     background-color: #f2f2f2;
+    font-weight: bold;
 }
-.product img {
+
+.products-table td img {
     width: 100px;
     height: auto;
     display: block;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
-.product p {
-    margin: 5px 0;
-}
+
 .product-action {
     text-align: center;
 }
+
+.product-action a {
+    margin-right: 10px;
+}
+
+.product-action form {
+    display: inline-block;
+}
+
+button, .product-action input[type="submit"] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 5px 11px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, .product-action input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+button:active, .product-action input[type="submit"]:active {
+    background-color: #3e8e41;
+}
+
+.product-action a button {
+    background-color: #008CBA;
+}
+
+.product-action a button:hover {
+    background-color: #007bb5;
+}
+
+.product-action input[type="submit"] {
+    background-color: #f44336;
+}
+
+.product-action input[type="submit"]:hover {
+    background-color: #e53935;
+}
+
 .pagination {
+    margin: 20px 0;
+}
+
+.pagination ul {
     list-style-type: none;
     padding: 0;
+    display: flex;
+    justify-content: center;
 }
 
 .pagination li {
@@ -96,4 +158,3 @@ p {
 .pagination li.disabled span {
     color: #ccc;
 }
-

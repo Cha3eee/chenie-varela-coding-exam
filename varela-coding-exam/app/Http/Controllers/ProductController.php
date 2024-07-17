@@ -118,7 +118,8 @@ class ProductController extends Controller
         $product->save();
     
         // Redirect back with success message
-        return redirect()->back()->with('success', 'Product updated successfully');
+        return redirect('/admin-dashboard');
+
     }
     
 

@@ -12,8 +12,10 @@ class ProductsTesting extends TestCase{
 
     public function testCreateProd()
     {
+        //Generate fake img to upload
         $file = UploadedFile::fake()->image("product.jpg");
 
+        //Populate thru testing
         $response = $this->post('/products' , [
             'prodID' => 'PROD001',
             'prodImg' => $file,
@@ -22,6 +24,7 @@ class ProductsTesting extends TestCase{
             'prodPrice' => 100,
         ]);
 
+        //redirect if successful
         $response->assertRedirect('/admin-dashboard');
 
         $this->assertDatabaseHas('products', [
@@ -36,6 +39,7 @@ class ProductsTesting extends TestCase{
 
     public function tearDown(): void
     {
+        //delete the testprod once done
         Products::where('prodID', 'PROD001')->delete();
         parent::tearDown();
     }
