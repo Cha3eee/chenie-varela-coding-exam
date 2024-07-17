@@ -7,11 +7,23 @@
         <a href="/admin-dashboard">Home</a>
     </div>
 </nav>
+
+<div class="container">
+    <h1>Update Product</h1>
+
+    @if ($isCached)
+        <div class="alert alert-info">
+            Product details were loaded from the cache.
+        </div>
+    @else
+        <div class="alert alert-info">
+            Product details were loaded from the database.
+        </div>
+    @endif
+
 <form method="POST" action="{{ route('Admin.edit-product', ['prodID' => $product->prodID]) }}" id="productsperpage" enctype="multipart/form-data">
     @csrf
     @method('PUT')
-    <div class="container">
-        <h1>Add Product</h1>
 
         <div class="form-group">
             <label for="prodImg">Product Image:</label>
@@ -49,6 +61,7 @@
         </div>
     </div>
 </form>
+
 
 <script>
     // Function to limit character input to 255 characters

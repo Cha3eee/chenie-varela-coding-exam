@@ -108,10 +108,4 @@ nav img {
     opacity: 0.7;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .container {
-        padding: 10px;
-    }
-}
 </style>

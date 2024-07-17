@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Products;
-
+use Illuminate\Support\Facades\Cache;
 class ProductController extends Controller
 {
     //Add Product to the DB
@@ -30,13 +30,18 @@ class ProductController extends Controller
                 return redirect()->back()->with('error', 'Invalid File.');
             }
         }else{
-            return redirect()->back()-with('error', 'Invalid File Upload');
+            return redirect()->back()->with('error', 'Invalid File Upload');
         }
 
         //Creating the product
 
         try{
-            Products::create($validated);
+            $product = Products::create($validated);
+
+            $cacheKey ='product_' . $product->prodID;
+            Cache::put($cacheKey, $product, 60);
+
+
         }catch(\Exception $e){
             //Log the Error Message for debugging
             dd($e->getMessage());
@@ -59,9 +64,19 @@ class ProductController extends Controller
     //Viewing of per products
 
     public function viewProduct($prodID) {
-        $product = Products::where('prodID', $prodID)->first();
+
+        $cacheKey = 'product_' . $prodID;
+
+        $product = Cache::remember($cacheKey, 60, function () use ($prodID) {
+            return Products::where('prodID', $prodID)->first();
+        });
+
+        $isCached = Cache::has($cacheKey);
+
+
+        // $product = Products::where('prodID', $prodID)->first();
     
-        return view('Admin.admin-updateprod', ['product' => $product]);
+        return view('Admin.admin-updateprod', ['product' => $product, 'isCached' => $isCached]);
     }
 
     //Updating the product
