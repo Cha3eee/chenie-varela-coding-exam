@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    text-align: center; 
+}
+
+header {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+nav img {
+    width: 40px; 
+    margin-right: 10px; 
+}
+
+.brand {
+    font-size: 1.5em;
+}
+
+.links {
+    margin-left: auto; 
+}
+
+.links a {
+    margin-left: 10px; 
+    text-decoration: none;
+    color: #333;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+.products-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.products-table th,
+.products-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+.products-table th {
+    background-color: #f2f2f2;
+}
+.product img {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto; 
+}
+.product p {
+    margin: 5px 0;
+}
+.product-action {
+    text-align: center;
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+.pagination a {
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #000;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+}
+.pagination a.active {
+    background-color: #f2f2f2;
+}
