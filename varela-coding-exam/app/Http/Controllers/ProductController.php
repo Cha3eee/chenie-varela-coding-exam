@@ -47,6 +47,7 @@ class ProductController extends Controller
         
     }
 
+    //Pagination View of products
     public function dashboard(){
         $products = Products::paginate(5);
         
@@ -54,4 +55,65 @@ class ProductController extends Controller
             'products' => $products,
         ]);
     }
+
+    //Viewing of per products
+
+    public function viewProduct($prodID) {
+        $product = Products::where('prodID', $prodID)->first();
+    
+        return view('Admin.admin-updateprod', ['product' => $product]);
+    }
+
+    //Updating the product
+
+    public function editProd(Request $request, $prodID){
+        // Validate the incoming request data
+        $request->validate([
+            'prodID' => 'required',
+            'prodName' => 'required|string|max:255',
+            'prodDesc' => 'required|string|max:255',
+            'prodPrice' => 'required|numeric|min:0',
+            'prodImg' => 'image|mimes:jpeg,png,jpg|max:2048', // Validate image file
+        ]);
+    
+        // Find the product by prodID
+        $product = Products::where('prodID', $prodID)->first();
+    
+        // Handle case where product is not found
+        if (!$product) {
+            return redirect()->back()->with('error', 'Product not found');
+        }
+    
+        // Update the product information
+        $product->prodID = $request->input('prodID');
+        $product->prodName = $request->input('prodName');
+        $product->prodDesc = $request->input('prodDesc');
+        $product->prodPrice = $request->input('prodPrice');
+    
+        // Handle product image update if a new image file is uploaded
+        if ($request->hasFile('prodImg') && $request->file('prodImg')->isValid()) {
+    
+            // Store new image
+            $image = $request->file('prodImg');
+            $imageData = file_get_contents($image->getRealPath());
+            $product->prodImg = $imageData;
+        }
+    
+        // Save the updated product to the database
+        $product->save();
+    
+        // Redirect back with success message
+        return redirect()->back()->with('success', 'Product updated successfully');
+    }
+    
+
+    //Delete the Product
+    
+    public function deleteProd($prodID){
+        $product = Products::where('prodID', $prodID)->first();
+        $product->delete();
+
+        return redirect('/admin-dashboard');
+    }
+    
 }

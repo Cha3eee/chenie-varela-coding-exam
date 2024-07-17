@@ -32,3 +32,8 @@ Route::get('/admin-addprod', function () {
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 //Showing of the products
 Route::get('/admin-dashboard', [ProductController::class,'dashboard'])->name('Admin.admin-products');
+//PRODUCT PERPAGE (EDIT/UPDATE)
+Route::get('/admin-updateprod/{prodID}', [ProductController::class, 'viewProduct'])->name('Admin.view-products');
+Route::put('/admin-products-perpage/{prodID}', [ProductController::class, 'editProd'])->name('Admin.edit-product');
+//DELETE PRODUCT
+Route::delete('/product/{prodID}', [ProductController::class, 'deleteProd'])->name('product.delete');
