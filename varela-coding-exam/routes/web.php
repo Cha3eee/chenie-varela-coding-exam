@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 
 //Landing Page
@@ -18,3 +19,16 @@ Route::get('/admin-dashboard', function () {
 Route::get('/admin-addprod', function () {
     return view('Admin/admin-addprod');
 });
+
+
+/*
+|--------------------------------------------------------------------------
+| PRODUCT 
+|--------------------------------------------------------------------------
+|
+*/
+
+//Adding of Product
+Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+//Showing of the products
+Route::get('/admin-dashboard', [ProductController::class,'dashboard'])->name('Admin.admin-products');

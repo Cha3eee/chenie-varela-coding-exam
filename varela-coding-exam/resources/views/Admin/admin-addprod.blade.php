@@ -8,6 +8,7 @@
     <link rel="icon" href="img/minimart.png" type="image/x-icon">
     <title>MegaMart Admin</title>
 </head>
+<body>
 <nav>
     <img src="img/minimart.png" alt="MegaMart Logo">
     <span class="brand">MEGAMART</span>
@@ -16,6 +17,8 @@
         <a href="/admin-dashboard">Home</a>
     </div>
 </nav>
+<form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
+    @csrf
 <div class="container">
     <h1>Add Product</h1>
 
@@ -38,7 +41,8 @@
 
     <div class="form-group">
         <label for="prodDesc">Product Description:</label>
-        <textarea id="prodDesc" name="prodDesc" rows="4" required></textarea>
+        <textarea id="prodDesc" name="prodDesc" rows="4" maxlength="255" oninput="checkLength(this);" required></textarea>
+        <span id="prodDescCount" class="char-count" style="margin-left: 550px; opacity: 50%; font-size: 13px">0/255</span>
     </div>
 
     <div class="form-group">
@@ -48,12 +52,23 @@
 
     <div class="form-group">
         <label for="prodImg">Product Image:</label>
-        <input type="file" id="prodImg" name="prodImg">
+        <input type="file" id="prodImg" name="prodImg"  accept="image/jpeg,image/png,image/jpg" required>
     </div>
 
     <div class="form-group">
-        <button type="submit">Add Product</button>
+        <input type="submit" value="Add Product" name="addProduct">
     </div>
 </div>
+</form>
+
+<script>
+    // Function to limit character input to 255 characters
+    function checkLength(textarea) {
+        if (textarea.value.length > 255) {
+            textarea.value = textarea.value.substring(0, 255);
+        }
+        document.getElementById('prodDescCount').textContent = textarea.value.length + '/255';
+    }
+</script>
 </body>
 </html>

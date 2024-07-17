@@ -8,11 +8,12 @@
     <link rel="icon" href="img/minimart.png" type="image/x-icon">
     <title>MegaMart Admin</title>
 </head>
+<body>
 <nav>
     <img src="img/minimart.png" alt="MegaMart Logo">
     <span class="brand">MEGAMART</span>
 
-    <div class="links">
+    <div class="links-home">
         <a href="#home">Home</a>
         <a href="/admin-addprod">Add Product</a>
     </div>
@@ -23,6 +24,7 @@
     <thead>
         <tr>
             <th>Image</th>
+            <th>Product ID</th>
             <th>Item</th>
             <th>Description</th>
             <th>Price</th>
@@ -32,34 +34,24 @@
         </tr>
     </thead>
     <tbody>
+        @foreach ($products as $productInfo)
         <tr class="product">
-            <td><img src="img/minimart.png" alt="Product 1"></td>
-            <td>Item 1</td>
-            <td>prod desc</td>
-            <td>prod price</td>
-            <td>created at</td>
-            <td>updated at</td>
+            <td><img src="data:image/jpeg;base64,{{ urlencode(base64_encode($productInfo->prodImg)) }}" /></td>
+            <td>{{$productInfo->prodID}}</td>
+            <td>{{$productInfo->prodName}}</td>
+            <td>{{$productInfo->prodDesc}}</td>
+            <td>{{$productInfo->prodPrice}}</td>
+            <td>{{$productInfo->created_at}}</td>
+            <td>{{$productInfo->updated_at}}</td>
             <td class="product-action"><button>Update Product</button></td>
         </tr>
-        <tr class="product">
-            <td><img src="img/minimart.png" alt="Product 2"></td>
-            <td>Item 2</td>
-            <td>prod desc</td>
-            <td>prod price</td>
-            <td>created at</td>
-            <td>updated at</td>
-            <td class="product-action"><button>Update Product</button></td>
-        </tr>
+        @endforeach
     </tbody>
 </table>
 
 <div class="pagination">
-    <a href="#" class="active">1</a>
-    <a href="#">2</a>
-    <a href="#">3</a>
-    <a href="#">4</a>
-    <a href="#">5</a>
-    <a href="#">Next</a>
+    {{ $products->links('vendor.pagination.simple-default') }}
 </div>
+
 </body>
 </html>

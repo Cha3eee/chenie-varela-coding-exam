@@ -29,11 +29,11 @@ nav img {
     font-size: 1.5em;
 }
 
-.links {
+.links-home {
     margin-left: auto; 
 }
 
-.links a {
+.links-home a {
     margin-left: 10px; 
     text-decoration: none;
     color: #333;
@@ -74,19 +74,26 @@ p {
 .product-action {
     text-align: center;
 }
-
 .pagination {
-    margin-top: 20px;
-    text-align: center;
+    list-style-type: none;
+    padding: 0;
 }
-.pagination a {
-    display: inline-block;
-    padding: 8px 16px;
+
+.pagination li {
+    display: inline;
+    margin: 0 5px;
+}
+
+.pagination li a {
     text-decoration: none;
-    color: #000;
-    border: 1px solid #ddd;
-    margin: 0 4px;
+    color: #333;
 }
-.pagination a.active {
-    background-color: #f2f2f2;
+
+.pagination li span {
+    color: #999;
 }
+
+.pagination li.disabled span {
+    color: #ccc;
+}
+
