@@ -57,7 +57,7 @@
         </div>
 
         <div class="form-group">
-            <input type="submit" value="Update Product" name="updateProduct">
+            <input type="submit" value="Update Product" name="updateProduct" onclick="return confirm('Are you sure you want to update this product?');">
         </div>
     </div>
 </form>

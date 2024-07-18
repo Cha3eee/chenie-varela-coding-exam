@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('css/admin.css') }}"> <!-- Use asset() to link CSS -->
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}"> 
     <link rel="icon" href="{{ asset('img/minimart.png') }}" type="image/x-icon">
     <title>MegaMart Admin</title>
 </head>
 <body>
 <nav>
-    <img src="{{ asset('img/minimart.png') }}" alt="MegaMart Logo"> <!-- Use asset() for image paths -->
+    <img src="{{ asset('img/minimart.png') }}" alt="MegaMart Logo"> 
     <span class="brand">MEGAMART</span>
 
     <div class="links-home">
@@ -40,7 +40,7 @@
             <td>{{ $productInfo->prodID }}</td>
             <td>{{ $productInfo->prodName }}</td>
             <td>{{ $productInfo->prodDesc }}</td>
-            <td>{{ $productInfo->prodPrice }}</td>
+            <td>₱{{ $productInfo->prodPrice }}</td>
             <td>{{ $productInfo->created_at }}</td>
             <td>{{ $productInfo->updated_at }}</td>
             <td class="product-action">

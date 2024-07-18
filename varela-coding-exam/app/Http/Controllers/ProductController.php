@@ -38,8 +38,8 @@ class ProductController extends Controller
         try{
             $product = Products::create($validated);
 
-            $cacheKey ='product_' . $product->prodID;
-            Cache::put($cacheKey, $product, 60);
+            $cacheKey ='prodID-' . $product->prodID;
+            Cache::put($cacheKey, $product, 3600);
 
 
         }catch(\Exception $e){
@@ -117,7 +117,7 @@ class ProductController extends Controller
         // Save the updated product to the database
         $product->save();
     
-        // Redirect back with success message
+        // Redirect
         return redirect('/admin-dashboard');
 
     }
