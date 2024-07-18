@@ -22,6 +22,9 @@ MegaMart includes automated tests for product management located in `tests\Featu
 To execute these tests, run: 
 php artisan test
 
+## Additional Instruction
+In editing/updating the product, the admin will need to double click the textbox.
+
 ## System Details
 * PHP Version: PHP 8.2.10
 * Composer Version: 2.7.7
