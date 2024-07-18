@@ -27,10 +27,10 @@ php artisan test
 * Composer Version: 2.7.7
 
 ## MySQL Database
-* Database File - `chenie-varela-coding-exam\megamart.db`.
+* Database File - `chenie-varela-coding-exam\megamart.sql`.
 * Database Name = megamart 
 
-##### ANSWER TO FEATURE REQUEST ######
+## ANSWER TO FEATURE REQUEST
 
 Q: The management requested a new feature where in the fictional e-commerce app must have a "featured products" section.
 How would you go about implementing this feature in the backend?
