@@ -23,7 +23,7 @@ To execute these tests, run:
 php artisan test
 
 ## Additional Instruction
-In editing/updating the product, the admin will need to double click the textbox.
+To edit/update the product, the admin will need to double-click the textbox so it becomes editable.
 
 ## System Details
 * PHP Version: PHP 8.2.10
