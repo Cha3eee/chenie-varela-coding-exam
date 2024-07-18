@@ -5,17 +5,17 @@ MegaMart is a fictional simple e-commerce platform where as an admin you can man
 ## Cache Setup
 
 In your `.env` file, configure the cache settings:
-CACHE_STORE=database
-CACHE_PREFIX=
-CACHE_DRIVER=database
+  CACHE_STORE=database
+  CACHE_PREFIX=
+  CACHE_DRIVER=database
 
 After configuring the Cache Driver, follow these steps to test caching:
 1. Clear Cache - Clear the cache using artisan command and run PHP Tinker in CLI.
-php artisan cache:clear
-php artisan tinker
+  php artisan cache:clear
+  php artisan tinker
 2. Check Cache - In PHP Tinker, check if a product is cached:
-$cacheKey = 'prodID-'; // insert the product ID you want to check
-Cache::has($cacheKey); // this will display if it is true or false
+  $cacheKey = 'prodID-'; // insert the product ID you want to check
+  Cache::has($cacheKey); // this will display if it is true or false
 
 ## Automated Testing
 MegaMart includes automated tests for product management located in `tests\Feature\ProductTesting.php`. 
